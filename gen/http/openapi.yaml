@@ -1,0 +1,129 @@
+swagger: "2.0"
+info:
+  title: The service a
+  version: ""
+host: localhost:80
+consumes:
+- application/json
+- application/xml
+- application/gob
+produces:
+- application/json
+- application/xml
+- application/gob
+paths:
+  /api/info:
+    get:
+      tags:
+      - api
+      summary: info api
+      description: Show info of the service
+      operationId: api#info
+      responses:
+        "200":
+          description: OK response.
+          schema:
+            $ref: '#/definitions/APIInfoResponseBody'
+      schemes:
+      - grpc
+      - http
+  /foobars:
+    get:
+      tags:
+      - foobar
+      summary: list foobar
+      description: Show info of the service
+      operationId: foobar#list
+      responses:
+        "200":
+          description: OK response.
+          schema:
+            $ref: '#/definitions/FoobarFoobarResponseBodyCollection'
+      schemes:
+      - grpc
+      - http
+  /widgets:
+    get:
+      tags:
+      - widget
+      summary: list widget
+      description: Show info of the service
+      operationId: widget#list
+      responses:
+        "200":
+          description: OK response.
+          schema:
+            $ref: '#/definitions/WidgetWidgetResponseBodyCollection'
+      schemes:
+      - grpc
+      - http
+definitions:
+  APIInfoResponseBody:
+    title: 'Mediatype identifier: application/api.info; view=default'
+    type: object
+    properties:
+      id:
+        type: string
+        description: ID of the service
+        example: Suscipit aut error minima vero odio.
+      service_name:
+        type: string
+        description: Service's name
+        example: Qui sunt blanditiis.
+      version:
+        type: string
+        description: Service's version
+        example: Veniam ut facilis magnam vitae eligendi et.
+    description: InfoResponseBody result type (default view)
+    example:
+      id: Velit nihil sed et impedit.
+      service_name: Optio earum.
+      version: Dolorum qui beatae voluptatem illum veritatis neque.
+  FoobarFoobarResponseBodyCollection:
+    title: 'Mediatype identifier: application/foobar; type=collection; view=default'
+    type: array
+    items:
+      $ref: '#/definitions/FoobarResponseBody'
+    description: ListResponseBody is the result type for an array of FoobarResponseBody
+      (default view)
+    example:
+    - id: Dicta ratione dignissimos itaque facilis voluptas.
+    - id: Dicta ratione dignissimos itaque facilis voluptas.
+    - id: Dicta ratione dignissimos itaque facilis voluptas.
+    - id: Dicta ratione dignissimos itaque facilis voluptas.
+  FoobarResponseBody:
+    title: 'Mediatype identifier: application/foobar; view=default'
+    type: object
+    properties:
+      id:
+        type: string
+        description: ID of the service
+        example: Illum laudantium sit expedita atque id dolore.
+    description: Info about service a (default view)
+    example:
+      id: Fugit est magnam ea.
+    required:
+    - id
+  WidgetResponseBody:
+    title: 'Mediatype identifier: application/widget; view=default'
+    type: object
+    properties:
+      id:
+        type: string
+        description: ID of the service
+        example: Blanditiis praesentium quia.
+    description: Info about service a (default view)
+    example:
+      id: Maxime explicabo.
+    required:
+    - id
+  WidgetWidgetResponseBodyCollection:
+    title: 'Mediatype identifier: application/widget; type=collection; view=default'
+    type: array
+    items:
+      $ref: '#/definitions/WidgetResponseBody'
+    description: ListResponseBody is the result type for an array of WidgetResponseBody
+      (default view)
+    example:
+    - id: Sint enim deserunt qui qui fuga saepe.
+    - id: Sint enim deserunt qui qui fuga saepe.
